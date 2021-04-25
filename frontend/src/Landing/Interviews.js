@@ -4,6 +4,8 @@ import React, {useState} from 'react'
 import { useHistory } from "react-router-dom";
 import queryString from 'query-string'
 import Card from './card'
+import Sign from './Sign'
+
 
 
 function Interviews(props) {
@@ -17,38 +19,10 @@ function Interviews(props) {
         setEmail(event.target.value)
     }
 
-
-    function HandleSignup(event){
-        event.preventDefault()
-        setEmail(event.target.value)
-        console.log("signup pressed")
-        const value=queryString.parse(window.location.search);
-        const by=value.mvp;
-        console.log('mvp',by)//123
-        //API CALL TO NODE SERVER
-        fetch('/signup', {
-            method: 'post',
-            headers: {'Content-Type':'application/json'},
-            body: JSON.stringify({
-                 "email": email, by:"customer interview"
-            }),})
-            .then(response => response.json())
-            .then(data => {
-            const success = data.success
-            console.log(success)
-            //checking if user already exists and if our api call was successful
-            if (success == "true"){
-                if( data.goto == "dashboard"){
-                    history.push("/", {id:data.id, counts:data.counts});
-                } else{
-                    history.push("/", {id:data.id, counts:data.counts});
-                }
-            }
-        })
-        .catch((error) => {
-            console.error('Error: Fetch');
-        })
+    function handleSignup(event){
+        history.push("/sign",{})
     }
+
 
     return (
         <div className="container-landing">
@@ -62,10 +36,12 @@ function Interviews(props) {
                 <h1 className="one-liner primary-blue add-padding center-text decrease-font">Customer interviews without the cold emailing.</h1>
                 <p className="primary-blue center-text caption-landing">🎉 Get customer insights, validate your idea or get some feedback on the product. </p>
                 <form >
-                <input value={email} onChange={changeName} className="email-capture-landing" placeholder="📬 richard@pieppiper.com"></input>
-                <button className="btn-free-access" type="submit" onClick={HandleSignup}>Get Customer Interviews 🚀</button>
-                <p className="disclaimer-landing2 primary-blue">Customer interviews is a product by First 1000.</p>
+                <br></br>
+                {/* <input value={email} onChange={changeName} className="email-capture-landing" placeholder="📬 richard@pieppiper.com"></input> */}
+                <button className="btn-free-access" onClick={handleSignup} >Get Started  🚀</button>
+                {/* <p className="disclaimer-landing2 primary-blue">Customer interviews is a product by First 1000.</p> */}
                 </form>
+                {/* <Sign></Sign> */}
                 
                 </div>
                 <div className="right-content float-desktop small-text">
@@ -75,9 +51,6 @@ function Interviews(props) {
                 <Card  company="💬" description="We advertise your interview request in one of our newsletters" disclaimer="if we cant find the right audience we will let you know in 24 hours"></Card>
                 <Card  company="🤑" description="You pay us $5/interview." disclaimer=" You can also reward the participant whatever amount you think is fair." ></Card>
                 <br></br>
-                <div className="no-float ">
-                    <p>Hellow World</p>
-                </div>
 
                 </div>
             </div>
