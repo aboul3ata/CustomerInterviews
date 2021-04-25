@@ -1,0 +1,18 @@
+.container-Dashboard{
+    background-color: #FAF8FB;
+}
+
+.Rowdies{
+    font-family: 'Rowdies', cursive;
+}
+
+.header{
+    font-weight: 900;
+    color:#2F2651;
+    font-size: 56px;
+    text-align: center;
+}
+
+.orange-header{
+    color:#EBB660;
+}

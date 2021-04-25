@@ -1,0 +1,79 @@
+.container-schedule{
+    width:100%;
+    height: 240px;
+    background-color: #EBB660;
+    padding: 20px 20px 20px 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.s-font-header{
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.s-font-main{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.white{
+    color:white;
+}
+
+.black{
+    color:#6B6B6B;
+}
+
+.s-button{
+    width: 170px;
+    height: 50px;
+    border-radius: 8px;
+    background-color:white ;
+    color:  #EBB660;
+    border-style: none;
+    font-size: 16px;
+}
+
+.s-img{
+    position: absolute;
+    bottom: 0px;
+    right:5px;
+    width: 169px;
+    height: 118px;
+}
+
+.container-persona{
+    width:100%;
+    height: 240px;
+    background-color: white;
+    padding: 0px 20px 20px 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+
+.p-img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 316px;
+    height: 84px;
+}
+
+.c-button{
+    width: 180px;
+    height: 50px;
+    border-radius: 8px;
+    background-color:#EAE9EE ;
+    border-style: none;
+    font-size: 14px;
+}
+
+.container-calendly{
+    width:100%;
+    background-color: white;
+    padding: 0px 20px 20px 20px;
+    border-radius: 10px;
+    position: relative;
+}
