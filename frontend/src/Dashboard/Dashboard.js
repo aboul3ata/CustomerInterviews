@@ -2,6 +2,7 @@ import './Dashboard.css'
 import Schedule from './Components/Schedule'
 import Persona from './Components/Persona'
 import Calendly from './Components/Calendly';
+import Ref from './Components/Ref'
 
 
 function Dashboard(props) {
@@ -18,6 +19,8 @@ function Dashboard(props) {
                   <Persona></Persona>
                   <br></br>
                   <Calendly> </Calendly>
+                  <br></br>
+                  <Ref></Ref>
                   <br></br>
                 </div>
 

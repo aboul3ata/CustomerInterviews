@@ -58,15 +58,17 @@ provider:
 #    - include-me-dir/**
 
 functions:
-  hello:
-    handler: handler.hello
+  app-api:
+    handler: handler.handler
     events:
       - http:
-          path: /whoami
-          method: ANY
-      - https:
+          path: /
+          method: get
+          cors: true
+      - http:
           path: /{proxy+}
-          method: ANY
+          method: any
+          cors: true
 
 
 
