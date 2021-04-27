@@ -133,6 +133,19 @@
                       "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/bss-dev*:*:*"
                     }
                   ]
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "dynamodb:DescribeTable",
+                    "dynamodb:Query",
+                    "dynamodb:Scan",
+                    "dynamodb:GetItem",
+                    "dynamodb:PutItem",
+                    "dynamodb:UpdateItem",
+                    "dynamodb:DeleteItem"
+                  ],
+                  "Resource": "arn:aws:dynamodb:us-east-1:224441195086:table/interviews"
                 }
               ]
             }
@@ -161,7 +174,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/bss/dev/1619486615854-2021-04-27T01:23:35.854Z/bss.zip"
+          "S3Key": "serverless/bss/dev/1619508746139-2021-04-27T07:32:26.139Z/bss.zip"
         },
         "Handler": "handler.handler",
         "Runtime": "nodejs12.x",
@@ -179,14 +192,14 @@
         "AppDashapiLogGroup"
       ]
     },
-    "AppDashapiLambdaVersion6Yns6uQU8Jfuldcu4BpqNaOw0KLvacKyCVEBA8FoxPs": {
+    "AppDashapiLambdaVersionhZmIbGR2bCOZ4yWA5WnR4RvTFiHAEp1nGNuiDb3GcoY": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "AppDashapiLambdaFunction"
         },
-        "CodeSha256": "vQG5xz/ChgkSe7ReAQngn9MQSNdl8x1zwCcXGYdGRWc="
+        "CodeSha256": "u9pCWA67mLdB46AyVMT4TM8O0V42UqXd9iEZkiPt+30="
       }
     },
     "ApiGatewayRestApi": {
@@ -398,7 +411,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1619486601988": {
+    "ApiGatewayDeployment1619508734708": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -460,7 +473,7 @@
     "AppDashapiLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "AppDashapiLambdaVersion6Yns6uQU8Jfuldcu4BpqNaOw0KLvacKyCVEBA8FoxPs"
+        "Ref": "AppDashapiLambdaVersionhZmIbGR2bCOZ4yWA5WnR4RvTFiHAEp1nGNuiDb3GcoY"
       }
     },
     "ServiceEndpoint": {
