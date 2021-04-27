@@ -1,5 +1,6 @@
 import './c-dashboard.css'
 import React, {useEffect, useState } from 'react';
+import firebase from 'firebase';
 
 
 
@@ -14,16 +15,25 @@ function Ref() {
 //fetching as soon s it loads
 useEffect(() => {
     // setCode(2)
-    fetch('https://jrqdv94yq6.execute-api.us-east-1.amazonaws.com/dev/ref/', {})
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            setCode(data.ref_code)
-            setCount(data.count)
-        })
-        .catch((error) => {
-        console.error(error);
-        })
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          user.getIdToken().then(function(idToken) {  
+            fetch('https://jrqdv94yq6.execute-api.us-east-1.amazonaws.com/dev/ref/', {
+                method: 'get',
+                headers: {'Content-Type':'application/json',"token":idToken},
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                setCode(data.ref_code)
+                setCount(data.count)
+            })
+            .catch((error) => {
+            console.error(error);
+            })    
+          });
+        }
+      });
   }, [code])
 
     return (

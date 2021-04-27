@@ -56,7 +56,8 @@ provider:
 #    - '!exclude-me-dir/**'
 #    - include-me.js
 #    - include-me-dir/**
-
+plugins:
+  - serverless-offline
 functions:
   app-api:
     handler: handler.handler
