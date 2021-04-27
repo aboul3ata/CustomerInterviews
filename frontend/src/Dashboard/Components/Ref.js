@@ -20,7 +20,7 @@ useEffect(() => {
           user.getIdToken().then(function(idToken) {  
             fetch('https://jrqdv94yq6.execute-api.us-east-1.amazonaws.com/dev/ref/', {
                 method: 'get',
-                headers: {'Content-Type':'application/json',"token":idToken},
+                headers: {'Content-Type':'application/json',"Authorization":idToken},
             })
             .then(response => response.json())
             .then(data => {
