@@ -6,10 +6,10 @@ const routes = express.Router({
 });
 
 routes.get('/', (req, res) => {
-    if (!req.header("token")){
+    if (!req.header("Authorization")){
         res.status(401).json({});
     } else{
-        verifier.validate(req.header("token"),"interviews-4b797",(err,validated)=>{
+        verifier.validate(req.header("Authorization"),"interviews-4b797",(err,validated)=>{
             if (err) {
                 res.status(401).json({});
             } else {
@@ -17,6 +17,7 @@ routes.get('/', (req, res) => {
             }
         })
     }
+    // res.status(200).json({"ref_code":"1234","count":4});
 
 });
 
